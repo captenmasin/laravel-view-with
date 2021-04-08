@@ -2,10 +2,10 @@
 
 namespace Captenmasin\LaravelViewWith;
 
+use Captenmasin\LaravelViewWith\Services\GenerateViewRoute;
 use Illuminate\Support\Facades\Route;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Captenmasin\LaravelViewWith\Services\GenerateViewRoute;
 
 class LaravelViewWithServiceProvider extends PackageServiceProvider
 {
