@@ -31,7 +31,7 @@ class LaravelViewWithServiceProvider extends PackageServiceProvider
                 }
 
                 foreach ($data as $dataKey => $dataValue) {
-                    if ($dataValue instanceof Closure) {
+                    if (is_callable($dataValue)) {
                         $modelKey = Str::after($dataKey, ':') ?? null;
                         $modelName = Str::before($dataKey, ':');
 
