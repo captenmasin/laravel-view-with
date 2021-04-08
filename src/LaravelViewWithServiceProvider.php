@@ -18,7 +18,7 @@ class LaravelViewWithServiceProvider extends PackageServiceProvider
                 return Route::get($route, function () use ($route, $view, $data) {
                     $bindings = app()->router->binders;
                     $renderer = new GenerateViewRoute($route, $data, $bindings);
-                    dd($renderer->render($view));
+                    $renderer->render($view);
                 });
             });
         }
