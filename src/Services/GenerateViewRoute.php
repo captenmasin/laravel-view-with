@@ -44,7 +44,7 @@ class GenerateViewRoute
                     $binding = $this->modelBindings[$routeKey];
 
                     $data[$dataKey] = $binding($routeParamsMap[$modelName]);
-                } elseif(isset($routeParamsMap[$modelName])){
+                } elseif (isset($routeParamsMap[$modelName])) {
                     $model = app($reflectionParams->getType()->getName());
                     $dbColumn = $modelKey ? $modelKey : $model->getKeyName();
                     $dbValue = $routeParamsMap[$modelName];
