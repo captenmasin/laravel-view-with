@@ -24,7 +24,7 @@ class RouteTest extends TestCase
     /** @test */
     public function new_macro_matches_current_view_method()
     {
-        Route::viewWithData('test', 'routedata::tests.basic', ['bar' => 'baz']);
+        Route::viewWith('test', 'routedata::tests.basic', ['bar' => 'baz']);
 
         $response = $this->get('test')->getContent();
 
@@ -34,9 +34,13 @@ class RouteTest extends TestCase
     /** @test */
     public function new_macro_parses_closures_in_model_binding()
     {
+        /**
+         * TODO - This currently fails as the macro relies on request() and tests do not seem to like this
+         * e.g - dd(request()->path()) in the test always returns "/"
+         */
         $router = $this->getRouter();
         $user = TestUserModel::factory()->create()->first();
-        $router->viewWithData('test/{TestUserModel}', 'routedata::tests.user', [
+        $router->viewWith('test/{TestUserModel}', 'routedata::tests.user', [
             'TestUserModel' => fn (TestUserModel $TestUserModel) => $TestUserModel,
         ]);
 
@@ -45,6 +49,7 @@ class RouteTest extends TestCase
         $this->assertSame('Name '.$user->name, $response);
     }
 
+    /** Helper */
     protected function getRouter(): Router
     {
         $container = new Container();

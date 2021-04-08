@@ -16,6 +16,8 @@ class LaravelViewWithServiceProvider extends PackageServiceProvider
         if (! Route::hasMacro('viewWith')) {
             Route::macro('viewWith', function ($route, $view, $data) {
                 $routeParamsMap = [];
+
+                //TODO - Maybe shouldn't rely on request() function?
                 $currentPath = explode('/', request()->path());
                 $routeItems = explode('/', $route);
 
