@@ -2,10 +2,10 @@
 
 namespace Captenmasin\LaravelViewWith\Tests;
 
+use Captenmasin\LaravelViewWith\LaravelViewWithServiceProvider;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Captenmasin\LaravelViewWith\LaravelViewWithServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -31,9 +31,9 @@ class TestCase extends Orchestra
     {
         $app['config']->set('database.default', 'sqlite');
         $app['config']->set('database.connections.sqlite', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
     }
 
