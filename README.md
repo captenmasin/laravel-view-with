@@ -2,7 +2,7 @@
 
 ## What is this?
 
-Born from [this discussion](https://twitter.com/capten_masin/status/1380177902419988484), laravel-view-with basically mimics the [Route::view()](https://laravel.com/docs/8.x/routing#view-routes) syntax but allows for route model binding when passing data which currnetly isn't possible in base Laravel
+Born from [this discussion](https://twitter.com/capten_masin/status/1380177902419988484), `laravel-view-with` basically mimics the [Route::view()](https://laravel.com/docs/8.x/routing#view-routes) syntax but allows for route model binding when passing data which currnetly isn't possible in base Laravel
 
 
 ## Installation
@@ -30,4 +30,4 @@ resources/views/post.blade.php
 {{ $post->title }} by {{ $user->name }}
 ```
 
-It has all the same power that normal routes have, so custom model binding and parameters like {user:uuid} still work 
+It has all the same power that normal routes have, so custom model binding and parameters like `{user:uuid}` still work 
