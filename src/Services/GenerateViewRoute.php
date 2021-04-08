@@ -25,7 +25,7 @@ class GenerateViewRoute
         $i = 0;
         foreach ($routeItems as $routeItem) {
             if (isset($currentPath[$i])) {
-                $routeItem = str_replace(['{', '}'], '', $routeItem);
+                $routeItem = str_replace(['{', '}', '?'], '', $routeItem);
                 $routeParamsMap[$routeItem] = $currentPath[$i];
             }
             $i++;
@@ -35,15 +35,16 @@ class GenerateViewRoute
             if (is_callable($dataValue)) {
                 $modelKey = Str::after($dataKey, ':') ?? null;
                 $modelName = Str::before($dataKey, ':');
+                $modelName = Str::before($modelName, '?');
 
                 $reflectionParams = collect((new \ReflectionFunction($dataValue))->getParameters())->first();
                 $routeKey = $reflectionParams->getName();
 
-                if (isset($this->modelBindings[$routeKey])) {
+                if (isset($this->modelBindings[$routeKey]) && isset($routeParamsMap[$modelName])) {
                     $binding = $this->modelBindings[$routeKey];
 
                     $data[$dataKey] = $binding($routeParamsMap[$modelName]);
-                } else {
+                } elseif(isset($routeParamsMap[$modelName])){
                     $model = app($reflectionParams->getType()->getName());
                     $dbColumn = $modelKey ? $modelKey : $model->getKeyName();
                     $dbValue = $routeParamsMap[$modelName];
