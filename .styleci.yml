@@ -1,0 +1,10 @@
+php:
+  preset: laravel
+  version: 8
+  disabled:
+    - alpha_ordered_imports
+  enabled:
+    - length_ordered_imports
+  finder:
+    exclude:
+      - "vendor"
