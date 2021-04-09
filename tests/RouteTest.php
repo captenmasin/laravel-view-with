@@ -2,12 +2,12 @@
 
 namespace Captenmasin\LaravelViewWith\Tests;
 
-use Illuminate\Routing\Router;
-use Illuminate\Events\Dispatcher;
-use Illuminate\Container\Container;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Contracts\Routing\Registrar;
 use Captenmasin\LaravelViewWith\Tests\Support\TestUserModel;
+use Illuminate\Container\Container;
+use Illuminate\Contracts\Routing\Registrar;
+use Illuminate\Events\Dispatcher;
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 
 class RouteTest extends TestCase
 {

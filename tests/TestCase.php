@@ -2,10 +2,10 @@
 
 namespace Captenmasin\LaravelViewWith\Tests;
 
+use Captenmasin\LaravelViewWith\LaravelViewWithServiceProvider;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Captenmasin\LaravelViewWith\LaravelViewWithServiceProvider;
 
 class TestCase extends Orchestra
 {
